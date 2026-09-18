@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --color-zinc-950: #09090b;
+  --color-zinc-900: #18181b;
+  --color-zinc-800: #27272a;
+  --color-zinc-700: #3f3f46;
+  --app-accent-color: #2563eb;
+  --app-accent-hover: #3b82f6;
+  --app-accent-rgb: 37, 99, 235;
+  --app-bg-base: #09090b;
+  --app-bg-surface: #18181b;
+  --app-bg-sidebar: #121215;
+  --app-border-color: #27272a;
+  --app-border-color-secondary: #3f3f46;
+  --app-font-ui-size: 14px;
+  --app-font-editor-size: 15px;
+  --app-font-preview-size: 16px;
+  --app-editor-line-height: 1.7;
+  --app-font-family-editor: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --app-editor-bg: #09090b;
+  --app-editor-text: #ffffff;
+  --app-editor-link: #60a5fa;
+  --app-editor-heading: #93c5fd;
+  --app-editor-bold: #ffffff;
+  --app-editor-italic: #e4e4e7;
+  --app-editor-code: #34d399;
+  --app-editor-keyword: #c084fc;
+  --app-editor-string: #a3e635;
+  --app-editor-number: #38bdf8;
+  --app-editor-comment: #71717a;
+  --app-editor-cursor: #60a5fa;
+  --app-editor-gutter-bg: #09090b;
+  --app-editor-gutter-text: #52525b;
+  --app-editor-gutter-border: #27272a;
+  --app-editor-active-line-bg: rgba(39, 39, 42, 0.4);
+  --app-editor-selection-bg: rgba(37, 99, 235, 0.28);
+  --app-preview-bg: #09090b;
+  --app-preview-text: #ffffff;
+  --app-preview-link: #60a5fa;
+  --app-preview-heading: #93c5fd;
+  --app-preview-bold: #ffffff;
+  --app-preview-italic: #e4e4e7;
+  --app-preview-code: #34d399;
+  --app-preview-code-bg: rgba(39, 39, 42, 0.6);
+  --app-preview-blockquote-border: #3b82f6;
+  --app-preview-blockquote-text: #a1a1aa;
+  --app-preview-table-header-bg: #27272a;
+  --app-preview-table-border: #3f3f46;
+  --app-preview-hr-border: #3f3f46;
+}
+
+/* Global custom scrollbar for all browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+/* WebKit & Blink custom scrollbar */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #3f3f46;
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #52525b;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #71717a;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Utility classes for scrollbars */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #3f3f46;
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #52525b;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body styles */
+body {
+  background-color: var(--app-bg-base, #09090b);
+  color: #f4f4f5;
+  font-size: var(--app-font-ui-size, 14px);
+  transition: background-color 0.2s ease, font-size 0.2s ease;
+}
+
+aside, main, header, section {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Dynamic theme accent helper classes */
+.bg-app-accent {
+  background-color: var(--app-accent-color);
+}
+.bg-app-accent:hover {
+  background-color: var(--app-accent-hover);
+}
+.text-app-accent {
+  color: var(--app-accent-color);
+}
+.border-app-accent {
+  border-color: var(--app-accent-color);
+}
+
+/* Fix highlight.js theme overrides in prose */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* CodeMirror custom theme variables integration */
+.cm-editor {
+  background-color: var(--app-editor-bg, #09090b) !important;
+  color: var(--app-editor-text, #ffffff) !important;
+}
+.cm-editor .cm-content {
+  color: var(--app-editor-text, #ffffff) !important;
+  caret-color: var(--app-editor-cursor, #60a5fa) !important;
+}
+.cm-editor .cm-line {
+  color: var(--app-editor-text, #ffffff) !important;
+}
+.cm-editor .cm-gutters {
+  background-color: var(--app-editor-gutter-bg, #09090b) !important;
+  color: var(--app-editor-gutter-text, #52525b) !important;
+  border-right: 1px solid var(--app-editor-gutter-border, #27272a) !important;
+}
+.cm-editor .cm-lineNumbers .cm-gutterElement {
+  color: var(--app-editor-gutter-text, #52525b) !important;
+}
+.cm-editor .cm-activeLine {
+  background-color: var(--app-editor-active-line-bg, rgba(39, 39, 42, 0.4)) !important;
+}
+.cm-editor .cm-activeLineGutter {
+  color: var(--app-editor-link, #60a5fa) !important;
+}
+.cm-editor .cm-selectionBackground,
+.cm-editor ::selection {
+  background-color: var(--app-editor-selection-bg, rgba(37, 99, 235, 0.28)) !important;
+}
+.cm-editor .cm-cursor {
+  border-left-color: var(--app-editor-cursor, #60a5fa) !important;
+}
